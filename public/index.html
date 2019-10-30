@@ -7,13 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>备忘清单</title>
     <link rel="stylesheet" type="" href="./css/index.css">
-
+    <script src="./js/vue.js"></script>
+    <script src="./js/index.js"></script>
 </head>
 
-<body>
+<body ref="body">
     <nav>
         <div class="w">
-            <h3>今日备忘清单</h3>
+            <h3 class="nav">{{navs}}</h3>
         </div>
     </nav>
     <div class="box">
@@ -26,7 +27,7 @@
             <ul class="note">
                 <li>
                     <div class="list_left">
-                        <h4>title</h4>
+                        <h4 class="title">{{title}}</h4>
                         <p>倒数日<span>1997年6月9日</span></p>
                     </div>
                     <span class="list_right">10天后</span>
@@ -34,6 +35,12 @@
             </ul>
         </div>
     </div>
+    <div class="bottom">
+        <div class="add" ref='check'>
+            <span class="iconfont" @mousedown="move()">&#xe60f;</span>
+        </div>
+    </div>
+
 </body>
 
 </html>

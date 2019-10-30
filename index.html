@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="inp">
+    <div class="mm"></div>
+    <script>
+        function suggest_so(result) {
+            var mm = document.querySelector('.mm')
+            mm.innerHTML = ''
+            console.log(result.result);
+            var obj = result.result;
+            for (const key in obj) {
+                var p = document.createElement('p')
+                p.innerText = obj[key].word
+                mm.appendChild(p)
+            }
+        }
+    </script>
+    <script>
+        // suggest_so(3)
+        var inp = document.querySelector('input');
+        var scr = document.querySelector('.scr');
+        inp.oninput = function() {
+            var inpstr = inp.value
+            var str = "https://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word=" + inpstr;
+            var scr = document.createElement('script');
+            // scr.setAttribute(str)
+            document.body.appendChild(scr)
+            scr.setAttribute('src', str)
+            scr.setAttribute('class', 'nuuu')
+            scr.setAttribute('type', 'text/javascript');
+            scrs = document.querySelectorAll('.nuuu')
+            scrs[0].remove();
+            // console.log(scrlength);
+
+        }
+    </script>
+    </script>
+</body>
+
+</html>
