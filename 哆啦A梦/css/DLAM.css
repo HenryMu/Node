@@ -430,6 +430,9 @@ span {
     margin: 0 auto;
 }
 
+
+/* 右手动画 */
+
 @keyframes arm {
     0% {
         transform: rotate(-10deg);
@@ -437,4 +440,43 @@ span {
     100% {
         transform: rotate(-30deg);
     }
+}
+
+
+/* 气球 */
+
+@keyframes balls {
+    0% {
+        /* transform: rotate(10deg); */
+        /* left: 100px; */
+        /* top: -255px; */
+    }
+    100% {
+        /* transform: rotate(30deg); */
+        left: 260px;
+        top: -295px;
+    }
+}
+
+.ball {
+    z-index: -22;
+    position: absolute;
+    top: -275px;
+    left: 275px;
+    width: 88px;
+    height: 105px;
+    background-color: #f5455e;
+    border-radius: 50%;
+    border: 1px solid black;
+    /* transform-origin: left bottom; */
+    animation: balls 2s linear infinite alternate;
+}
+
+.line {
+    position: absolute;
+    left: 42px;
+    top: 106px;
+    height: 167px;
+    width: 1px;
+    background-color: #333;
 }
