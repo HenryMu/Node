@@ -1,0 +1,440 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.circle {
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+
+.center {
+    width: 500px;
+    height: 600px;
+    margin: 0 auto;
+    /*水平居中*/
+    position: relative;
+    /*relative相对定位*/
+    top: 150px;
+    border: 1px solid red;
+}
+
+
+/*
+ * 相对于自己原来的位置进行定位，标签虽然走了，原位置还霸占着，别人用不了。
+ */
+
+.head {
+    position: relative;
+    top: 50px;
+    width: 300px;
+    height: 300px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    background: #0FA7D0;
+    margin: auto;
+    box-shadow: 5px -5px 10px #999;
+}
+
+
+/*
+ * 绝对定位：1.这个标签彻底脱离文档流，剩下标签布局好后，再将其贴上
+ *          2.绝对定位标签的祖先标签没有设置定位，则这个标签的定位点是屏幕左上角点，如果祖先标签设置了定位，定位点就是祖先标签的定位点
+ */
+
+.face {
+    z-index: 4;
+    border: 2px solid #000;
+    position: absolute;
+    /*absolute绝对定位*/
+    top: 65px;
+    left: 25px;
+    width: 250px;
+    height: 225px;
+    background: white;
+    border-radius: 50%/50%;
+}
+
+.eye1,
+.eye2 {
+    position: absolute;
+    border-radius: 40px;
+    width: 72.5px;
+    background: #ffffff;
+    height: 77.5px;
+    border: 2px solid #000;
+}
+
+.eye1 {
+    left: 48.5px;
+    top: -35px;
+}
+
+.eye2 {
+    left: 121.5px;
+    top: -35px;
+}
+
+.eyeball1,
+.eyeball2 {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background: #000;
+    border-radius: 50% 50%;
+    animation: eyemove 3s infinite;
+}
+
+.eyeball1 {
+    top: 50px;
+    left: 50px;
+}
+
+.eyeball2 {
+    top: 50px;
+    left: 7.5px;
+}
+
+@keyframes eyemove {
+    from {
+        margin: 0 0 0 0;
+    }
+    60% {
+        margin: 0 0 0 0;
+    }
+    70% {
+        margin: -20px 0 0 0;
+    }
+    80% {
+        margin: 0 0 0 0;
+    }
+    90% {
+        margin: 0 0 0 7px;
+    }
+    to {
+        margin: 0 0 0 0;
+    }
+}
+
+.nose {
+    z-index: 5;
+    /*z值大的在上面*/
+    position: absolute;
+    top: 35px;
+    left: 106.5px;
+    width: 27.5px;
+    height: 27.5px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    background: #CB3D00;
+}
+
+.face::after {
+    left: 121px;
+    top: 62.5px;
+    content: "";
+    width: 2px;
+    height: 90px;
+    background: #000;
+    position: absolute;
+}
+
+.mouth1 {
+    top: 70px;
+    left: 31.5px;
+    position: absolute;
+    width: 175px;
+    height: 80px;
+    background: #000;
+}
+
+.mouth2 {
+    top: 69px;
+    left: 30.9px;
+    position: absolute;
+    width: 180px;
+    height: 82.5px;
+    background: #ffffff;
+    border-radius: 50%;
+}
+
+span {
+    width: 60px;
+    height: 1.5px;
+    background: #000;
+    display: block;
+    position: absolute;
+    z-index: 5;
+}
+
+.mustache_middle1 {
+    top: 80px;
+    left: 25px;
+}
+
+.mustache_middle2 {
+    top: 80px;
+    left: 160px;
+}
+
+.mustache_top1 {
+    top: 64px;
+    left: 25px;
+    transform: rotate(12deg);
+}
+
+.mustache_top2 {
+    top: 64px;
+    left: 160px;
+    transform: rotate(-12deg);
+}
+
+.mustache_bottom1 {
+    top: 97px;
+    left: 25px;
+    transform: rotate(-12deg);
+}
+
+.mustache_bottom2 {
+    top: 97px;
+    left: 160px;
+    transform: rotate(12deg);
+}
+
+
+/* 脖子 */
+
+.neck {
+    z-index: 8;
+    top: 2px;
+    width: 235px;
+    height: 20px;
+    background: #A32101;
+    border-radius: 25px;
+    position: relative;
+    border: 2px solid #000;
+    margin: 0 auto;
+}
+
+.bell {
+    z-index: 9;
+    left: 95.5px;
+    top: 6px;
+    position: absolute;
+    border: 2px solid #000;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: #F6ED24;
+    transform-origin: top;
+}
+
+.bell:active {
+    animation: bellmove 1s linear alternate;
+}
+
+@keyframes bellmove {
+    from {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(30deg);
+    }
+    75% {
+        transform: rotate(-30deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
+
+.bell_icon {
+    position: absolute;
+    top: 10px;
+    width: 36px;
+    height: 2px;
+    border: 2px solid #000;
+}
+
+.bell_circle {
+    background: #000;
+    position: absolute;
+    top: 20px;
+    left: 14px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.bell_line {
+    top: 30px;
+    left: 19px;
+    width: 2px;
+    height: 10px;
+    background: #000000;
+    position: absolute;
+}
+
+
+/* 身体 */
+
+.body {
+    width: 220px;
+    height: 162px;
+    position: relative;
+    border: 2px solid #000;
+    background: #0FA7D0;
+    margin: 0px auto;
+}
+
+.body_circle {
+    background: #ffffff;
+    position: absolute;
+    left: 21px;
+    top: -50px;
+    ;
+    width: 175px;
+    height: 175px;
+}
+
+.shelter {
+    top: 48px;
+    left: 20px;
+    ;
+    z-index: 7;
+    width: 140px;
+    height: 20px;
+    background: #ffffff;
+    position: absolute;
+}
+
+.bellyband {
+    top: 90px;
+    left: 20px;
+    position: absolute;
+    z-index: 9;
+    width: 130px;
+    height: 65px;
+    border: 2px solid;
+    border-radius: 0 0 75px 75px;
+}
+
+.body_bottom_circle {
+    position: absolute;
+    top: 150px;
+    left: 97px;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+}
+
+.body_bottom_shelter {
+    position: absolute;
+    top: 164px;
+    left: 95px;
+    width: 30px;
+    height: 20px;
+    background: #ffffff;
+}
+
+.arm1,
+.arm2 {
+    z-index: -1;
+    position: absolute;
+    width: 90px;
+    height: 45px;
+    background: #0FA7D0;
+    border: 2px solid;
+}
+
+.arm1 {
+    top: 20px;
+    left: -68px;
+    transform: rotate(-40deg);
+}
+
+.arm2 {
+    top: -1px;
+    left: 217px;
+    width: 100px;
+    transform: rotate(40deg);
+    box-shadow: 5px -5px 10px #999;
+    transform-origin: left 38px;
+    animation: arm 2s linear infinite alternate;
+}
+
+.hand1,
+.hand2 {
+    width: 65px;
+    height: 65px;
+    background: #ffffff;
+    position: absolute;
+}
+
+.hand1 {
+    top: -10px;
+    left: -30px;
+}
+
+.hand2 {
+    top: -10px;
+    right: -30px;
+    box-shadow: 5px -5px 10px #999;
+}
+
+.arm1_shelter,
+.arm2_shelter {
+    left: -2px;
+    width: 20px;
+    height: 43.5px;
+    background: #0FA7D0;
+    ;
+    position: absolute;
+    z-index: 10;
+}
+
+.arm2_shelter {
+    left: 202px;
+}
+
+
+/* 脚 */
+
+.foot1 {
+    border-radius: 20px 11px 11px 11px;
+    z-index: 10;
+    right: 66px;
+    top: -2px;
+    position: relative;
+    width: 120px;
+    height: 32px;
+    border: 2px solid;
+    background: #ffffff;
+    box-shadow: 5px 0px 10px #999;
+    margin: 0 auto;
+}
+
+.foot2 {
+    border-radius: 11px 20px 11px 11px;
+    z-index: 10;
+    left: 65px;
+    top: -38px;
+    position: relative;
+    width: 120px;
+    height: 32px;
+    border: 2px solid;
+    background: #ffffff;
+    box-shadow: 5px 0px 10px #999;
+    margin: 0 auto;
+}
+
+@keyframes arm {
+    0% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(-30deg);
+    }
+}
